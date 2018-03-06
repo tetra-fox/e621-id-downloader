@@ -14,7 +14,3 @@ download e621 images from a list of ids
 `ID1,ID2,ID3[...]`
 
 an example `ids.txt` is also included with the repo
-
-# todo
-* make binaries idk
-* handle errors better or something
