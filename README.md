@@ -19,7 +19,7 @@ except it accepts these optional arguments:
 
 - `-i` - The input `ids` file, defaults to `./ids.txt`
 - `-o` - The output directory, defaults to `./dl`
-- `-c, --max-concurrent` - The maximum allowed concurrent downloads, defaults to `5`
+- `-c, --max-concurrent` - The maximum allowed concurrent downloads, defaults to (and is not recommended to go above) `5`
 - `--use-ids` - Pass this argument to use post IDs as the filename instead of the md5 hash
 
 # ids.txt schema
