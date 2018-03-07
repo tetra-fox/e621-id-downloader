@@ -95,14 +95,17 @@ var download = () => {
           var filename = body.file_url.substring(body.file_url.lastIndexOf("/") + 1)
           var fileExt = filename.split(".")[1]
           
-          var bar = new ProgressBar({
-            width: 20,
-            clear: true,
-            callback: () => {
-              bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} done! (${thisIndex + 1}/${ids.length})`.green, true)
-            }
-          })
-  
+          // var bar = new ProgressBar({
+          //   width: 20,
+          //   clear: true,
+          //   callback: () => {
+          //     bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} done! (${thisIndex + 1}/${ids.length})`.green, true)
+          //   }
+          // })
+
+          var bar = progressBars[openSpot]
+
+          bar.current = 0
           bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} :percent, :etas left (${thisIndex + 1}/${ids.length})`.cyan, true)
     
           var stream = fs.createWriteStream(`${dlPath}/${useIds ? `${id}.${fileExt}` : filename}`)
@@ -126,12 +129,14 @@ var download = () => {
             })
             .pipe(stream)
         } else {
-          var bar = new ProgressBar({
-            width: 20,
-            clear: true
-          })
+          // var bar = new ProgressBar({
+          //   width: 20,
+          //   clear: true
+          // })
 
-          bar.setSchema(`[:bar] ${filename} error! (${thisIndex + 1}/${ids.length})`.red, true)
+          var bar = progressBars[openSpot]
+
+          bar.setSchema(`[:bar] error! (${thisIndex + 1}/${ids.length})`.red, true)
 
           totalBar.tick()
           queue[openSpot] = null
