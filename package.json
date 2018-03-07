@@ -19,7 +19,7 @@
     "graceful-fs": "^4.1.11",
     "minimist": "^1.2.0",
     "progress": "^2.0.0",
-    "request": "^2.83.0",
+    "request": "^2.83.0"
   },
   "bin": {
     "e6dl": "./index.js",
