@@ -16,9 +16,10 @@
   "dependencies": {
     "ascii-progress": "^1.0.5",
     "colors": "^1.1.2",
+    "graceful-fs": "^4.1.11",
     "minimist": "^1.2.0",
     "progress": "^2.0.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
   },
   "bin": {
     "e6dl": "./index.js",
