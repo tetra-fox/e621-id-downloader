@@ -1,6 +1,6 @@
 {
   "name": "e621-id-downloader",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "download e621 images from a list of ids",
   "main": "index.js",
   "repository": {
@@ -14,8 +14,15 @@
   },
   "homepage": "https://github.com/tetra-fox/e621-id-downloader#readme",
   "dependencies": {
+    "ascii-progress": "^1.0.5",
     "colors": "^1.1.2",
+    "graceful-fs": "^4.1.11",
+    "minimist": "^1.2.0",
     "progress": "^2.0.0",
     "request": "^2.83.0"
+  },
+  "bin": {
+    "e6dl": "./index.js",
+    "e6dl-concurrent": "./concurrent.js"
   }
 }
