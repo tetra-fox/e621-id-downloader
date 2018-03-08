@@ -103,22 +103,24 @@ var download = () => {
           //   }
           // })
 
-          var bar = progressBars[openSpot]
-
-          bar.current = 0
-          bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} :percent, :etas left (${thisIndex + 1}/${ids.length})`.cyan, true)
-    
           var stream = fs.createWriteStream(`${dlPath}/${useIds ? `${id}.${fileExt}` : filename}`)
 
           var fileDl = request(body.file_url)
             .on("response", res => {
-              bar.total = parseInt(res.headers["content-length"], 10)
+              var bar = progressBars[openSpot]
+
+              bar.completed = false
+              bar.current = 0
+              bar.total = parseInt(res.headers["content-length"])
+
+              bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} :current/:total :percent, :etas left (${thisIndex + 1}/${ids.length})`.cyan, true)              
   
               res.on("data", data => {
                 bar.tick(data.length)
               })
 
               res.on("end", () => {
+                bar.setSchema(`[:bar] ${useIds ? `${id}.${fileExt}` : filename} done! (${thisIndex + 1}/${ids.length})`.green, true)
                 // need to do this to avoid reaching OS-defined
                 // hard limit for open files/connections (EMFILE)
                 stream.close()
