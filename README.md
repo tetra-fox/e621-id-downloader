@@ -12,7 +12,7 @@ download e621 images from a list of ids
 
 # concurrent downloading
 
-![](https://thumbs.gfycat.com/SlimyCapitalBurro-size_restricted.gif)
+![](https://thumbs.gfycat.com/NaiveSeveralFlies-size_restricted.gif)
 
 To allow concurrent downloads, use `concurrent.js` instead of `index.js`. It's essentially the same thing,
 except it accepts these optional arguments:
